@@ -164,10 +164,14 @@ $(document).ready(function() {
       placeholder: "בחירת מרכז",
       // allowClear: true,
     });
-    $("#openDropdownButton").click(function () {
-      // Open the Select2 dropdown
-      $("#input_3").select2('open');
-  });
+  $("#openDropdownButton").click(function () {
+    var $select2 = $("#input_3").data('select2');
+    if ($select2.isOpen()) {
+        $select2.close();
+    } else {
+        $select2.open();
+    }
+});
     $("#input_3").on("change", function () {
       handleChange();
     });
